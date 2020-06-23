@@ -176,7 +176,7 @@ bool DependencyScan::RecomputeOutputDirty(Edge* edge,
 
     if (output_mtime < most_recent_input->mtime()) {
       bool really_dirty = true;
-      if (edge->GetBindingBool("hash_input")) {
+      {
         string err;
         really_dirty = hash_log().EdgeChanged(edge, &err);
         if (!err.empty()) {
